@@ -27,9 +27,71 @@
     <title>Tasky</title>
   </head>
   <body>
+    <!-- Modal -->
+<div class="modal fade" 
+ id="exampleModal" 
+ tabindex="-1" 
+ aria-labelledby="exampleModalLabel" 
+ aria-hidden="true"
+ >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="imageurl" class="form-label">Image Url</label>
+          <input type="url"
+          placeholder="eg: http://example.com/image.png" 
+          class="form-control" 
+          id="imageurl" 
+          aria-describedby="Image url">
+        </div>
+        <div class="mb-3">
+          <label for="tasktitle" class="form-label">Task Title</label>
+          <input type="text" 
+          placeholder="eg: Learn Cyber" 
+          class="form-control" 
+          id="tasktitle" 
+          aria-describedby="Task Title">
+        </div>
+        <div class="mb-3">
+          <label for="tasktype" class="form-label">Task Type</label>
+          <input type="text" 
+          placeholder="eg: Work..." 
+          class="form-control" 
+          id="tasktype" 
+          aria-describedby="Task Type">
+        </div>
+        <div class="mb-3">
+          <label for="taskdescription" class="form-label">Task Description</label>
+          <textarea
+          rows="4"
+          placeholder="eg: Describe your task in detail!!" 
+          class="form-control" 
+          id="taskdescription" 
+          aria-describedby="Task Description"
+          ></textarea>
+        </div>
+      </div> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" 
+        class="btn btn-primary" 
+        onclick="saveChanges()"
+        data-bs-dismiss="modal"
+        >
+        Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light dark bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold text-primary" href="#">Tasky</a>
+          <a class="navbar-brand fw-bold text-primary" href="#">TaskY</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,7 +101,11 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>   <!--Home-->
               </li>
             </ul>
-            <button type="button" class="btn btn-primary">
+            <button type="button" 
+            class="btn btn-primary"
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal"
+            >
               <i class="fas fa-plus"></i> Add New</button>
 
           </div>
@@ -56,7 +122,7 @@
   </div>
   <!-- Cards -->
   <section>
-    <div class="row">
+    <div class="row task__container">
       <div class="col-md-6 col-lg-4">
         <div class="card text-center">
           <div class="card-header d-flex justify-content-end gap-2">
@@ -86,5 +152,8 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Our JavaScript File-->
+    ><script src="index.js"></script>
   </body>
 </html>
